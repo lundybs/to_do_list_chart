@@ -73,6 +73,7 @@ function CreateTask() {
 // Callback that creates and populates a data table,
 // instantiates the pie chart, passes in the data and
 // draws it.
+// **************You have to add a task to see this chart*********
 function drawChart() {
 
     // Create the data table.
