@@ -12,6 +12,7 @@
 
         // Set a callback to run when the Google Visualization API is loaded.
         google.charts.setOnLoadCallback(drawChart);
+        google.charts.setOnLoadCallback(drawPieChart);
     </script>
 </head>
 <body>
@@ -46,7 +47,12 @@
         <input type="submit" name="submit" value="Create Task" />
     </form>
     <div id="list-container"></div>
-    <div id="chart_div"></div>
+    <table>
+        <tr>
+            <td><div id="chart_div"></div></td>
+            <td><div id="piechart_div"></div></td>
+        </tr>
+    </table>
 
     <script type="text/javascript" src="Script/taskJS.js"></script>
 </body>
