@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To Do Task List</title>
+    <meta charset="utf-8" />
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', { 'packages': ['corechart'] });
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.charts.setOnLoadCallback(drawChart);
+    </script>
+</head>
+<body>
+    <h1>To do list generator</h1>
+    <form name="taskMaster" onsubmit="CreateTask()" onreset="ResetForm()">
+        <fieldset>
+            <legend>Who will do the task</legend>
+            <label>
+                <input type="radio" name="person" value="Terry" checked>Terry
+            </label>
+            <label>
+                <input type="radio" name="person" value="Sam">Sam
+            </label>
+            <label>
+                <input type="radio" name="person" value="Alan">Alan
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Choose difficulty and name of task</legend>
+            <label>Task Difficulty</label>
+            <select id="complexity" name="difficutly">
+                <option value="Laughably Easy">Laughably Easy</option>
+                <option value="Easy">Easy</option>
+                <option value="Moderate">Moderate</option>
+                <option value="A little elbow grease">A little elbow grease</option>
+                <option value="difficult">Difficult</option>
+                <option value="Call your Mom, you're not finishing this task">Call your Mom, you're not finishing this task</option>
+            </select>
+            <label>Task description</label>
+            <textarea id="task" name="task" rows="5" cols="40"></textarea>
+        </fieldset>
+        <input type="submit" name="submit" value="Create Task" />
+    </form>
+    <div id="list-container"></div>
+    <div id="chart_div"></div>
+
+    <script type="text/javascript" src="Script/taskJS.js"></script>
+</body>
+</html>
