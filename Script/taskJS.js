@@ -1,19 +1,41 @@
-﻿//get values from the form
-const name = document.querySelector('input[name="person"]:checked').value;
-const difficult = document.getElementById('complexity').value;
-const description = document.getElementById('task').value;
-
-//values that go into the chart
-const veryEasyDiff = 0;
-const easyDiff = 0;
-const moderateDiff = 0;
-const meduimDiff = 0;
-const difficultDiff = 0;
-const veryDifficultDiff = 0;
+﻿//values that go into the chart
+var veryEasyDiff = 0;
+var easyDiff = 0;
+var moderateDiff = 0;
+var meduimDiff = 0;
+var difficultDiff = 0;
+var veryDifficultDiff = 0;
 
 function CreateTask() {
     event.preventDefault();
     console.log("In CreateTask function!");
+
+    //get values from the form
+    const name = document.querySelector('input[name="person"]:checked').value;
+    const difficult = document.getElementById('complexity').value;
+    const description = document.getElementById('task').value;
+
+    switch (difficult) {
+        case "Laughably Easy":
+            veryEasyDiff += 1;
+            break;
+        case "Easy":
+            easyDiff += 1;
+            break;
+        case "Moderate":
+            moderateDiff += 1;
+            break;
+        case "A little elbow grease":
+            meduimDiff += 1;
+            break;
+        case "difficult":
+            difficultDiff += 1;
+            break;
+        case "Call your Mom, you're not finishing this task":
+            veryDifficultDiff += 1;
+            break;
+    }
+
 
     //create the ul and li and know where to place it in html body
     const parent = document.getElementById("list-container");
@@ -25,6 +47,7 @@ function CreateTask() {
     liNode.appendChild(liText);
     ulNode.appendChild(liNode);
     parent.appendChild(ulNode);
+    drawChart();
 }
 
 // Callback that creates and populates a data table,
